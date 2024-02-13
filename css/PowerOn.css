@@ -1,0 +1,154 @@
+/* Logo/Dialing/Splash CSS */
+
+body {
+  background-color: #000;
+  color: #888;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#city {
+  position: fixed;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100vh;
+  background-image: url('../images/Dialing.svg');
+  background-size: contain;
+  background-position: center center;
+  z-index: -1;
+  background-repeat: no-repeat;
+}
+
+#dialing-music {
+  display: flex;
+  margin: 2vh 1vh 1vh 1vh;
+}
+
+#progressbar-container {
+  margin-left: 15vh;
+  margin-right: 15vh;
+  margin-top: 85vh;
+}
+
+#skipDialing {
+  float: right;
+}
+
+.animating {
+  opacity: 0;
+  animation: fadeInOut 2s ease-in-out forwards;
+  width: 35vw;
+  height: auto;
+}
+
+/* This was a dumb idea */
+.fadeIn {
+  animation: fadeTransition linear 0.5s;
+}
+
+.hiddenUntilClick,
+.hiddenUntilLogo,
+.hiddenUntilConnected {
+  display: none;
+}
+
+.hideOnClick {
+  position: absolute;
+  display: grid;
+  text-align: center;
+}
+
+.logoArea {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+}
+
+.hiddenUntilConnected {
+  align-items: center;
+  height: 100vh;
+  width: 35vw;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.noCursor {
+  cursor: none;
+}
+
+.powerOnButton {
+  margin-left: auto !important;
+  margin-right: auto;
+  cursor: url('../images/cursorClick.png') 24 23, pointer;
+}
+
+.cityCrossfade {
+  animation: 0.5s cityCrossfade;
+}
+
+@keyframes fadeTransition {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.splash-shine {
+  animation: 2s splashShine linear;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes cityCrossfade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes splashShine {
+  0% { opacity: 0.5; }
+  15% { opacity: 1; }
+  30% { opacity: 0; }
+  45% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.glow {
+  animation: 4s glow ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,100% { opacity: 100%; }
+  50% { opacity: 80%; }
+}
+
+@media (max-width: 760px) { /* Mobile Styles */ 
+  body {
+    font-size: 1rem;
+  }
+
+  .animating {
+    width: 80vw;
+  }
+  
+  #city {
+    left: -25%;
+    width: 150%;
+  }
+  
+  #progressbar-container {
+    margin-left: 8vw;
+    margin-right: 8vw;
+  }
+
+  .hiddenUntilConnected {
+    width: 75vw;
+  }
+}
